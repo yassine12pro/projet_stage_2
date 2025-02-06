@@ -1,0 +1,59 @@
+<div *ngIf="loading" class="loading">
+    Chargement des détails du cours...
+  </div>
+  
+  <div *ngIf="!loading && error" class="error">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="!loading && !error" class="course-details">
+    <div class="leftside">
+      <img [src]="course.imageUrl" alt="Course Image" class="course-image" />
+    </div>
+  
+    <div class="rightside">
+        <h1 class="course-name">{{ course.name }}</h1>
+        <p class="description">{{course.description}}</p>
+        <app-starrating class="stars" [stars]="course.stars"></app-starrating>
+      <p class="duree"> <i class="fa fa-clock" style="color: #5c5c5c"></i> {{ course.duration }} months</p>
+      <p class="course-duration">
+        <i class="fa-solid fa-location-dot" style="color: #5c5c5c"></i> Présentiel / En ligne
+      </p>
+      <p class="prix"><strong>Prix :</strong> {{ course.price | currency }} /month</p>
+        <button *ngIf="!user.isAdmin" (click)="addToCart()">Add To Cart</button>
+    </div>
+  </div>
+  
+
+  <h4>Other Courses :</h4>
+
+  <ul class="courses-list">
+    <li *ngFor="let course of courses" class="course-card">
+      <a [routerLink]="'/courses/' + course.id" class="course-card-link">
+        <div class="course-card-image">
+          <img [src]="course.imageUrl" [alt]="course.name" />
+        </div>
+        <div class="course-card-content">
+          <div class="course-name">{{ course.name }}</div>
+          <div class="course-desc">{{ course.description }}</div>
+          <div class="course-rating">
+            <app-starrating [stars]="course.stars"></app-starrating>
+          </div>
+          <div class="course-footer">
+            <div>
+              <p class="course-duration">
+                <i class="fa fa-clock"></i> {{ course.duration }} months
+              </p>
+              <p class="course-duration">
+                <i class="fa-solid fa-location-dot" style="color: #5c5c5c"></i> Présentiel / En ligne
+              </p>
+            </div>
+            <div class="course-price">
+              <span>{{ course.price | currency }} /month</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+  

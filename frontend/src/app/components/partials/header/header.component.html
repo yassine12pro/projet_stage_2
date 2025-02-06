@@ -1,0 +1,44 @@
+<header>
+    <div class="container">
+      <a href="/" class="logo"> <img src="assets/J.png" alt="App Logo"> </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a routerLink="/courses">Courses</a>
+          </li>
+          <li>
+            <a routerLink="/about">About Us</a>
+          </li>
+          <li>
+            <a routerLink="/contact">Contact</a>
+          </li>
+          <li *ngIf="!isAuth">
+            <a routerLink="/login">Login</a>
+          </li>
+
+          <li *ngIf="isAuth && !user.isAdmin">
+            <a routerLink="/avis">Review</a>
+          </li>
+
+          <li *ngIf="isAuth" class="menu-container">
+            <a routerLink="/profile">{{user.name}}</a>
+            <div class="menu">
+              
+              <a  routerLink="/orders">Orders</a>
+              <a *ngIf="user.isAdmin" routerLink="/dashboard">Dashboard</a>
+              <a (click)="logout()">Logout</a>
+            </div>
+          </li>
+
+          <li *ngIf="isAuth && !user.isAdmin">
+            <a routerLink="/cart-page">
+                <i class="fa-solid fa-cart-shopping"></i> <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>

@@ -1,0 +1,104 @@
+/* Overall container for the course cards */
+.courses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Augmenter la taille minimale des cartes */
+    gap: 30px; /* Augmenter l'espacement entre les cartes */
+    padding: 30px; /* Ajouter du padding autour des cartes */
+    list-style: none;
+    margin-top: 30px;
+  }
+  
+  /* Style for each individual course card */
+  .course-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Augmenter l'arrondi des coins */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre plus marquée pour plus de profondeur */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 500px; /* Ajouter une hauteur fixe pour la carte */
+  }
+  .course-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+  } 
+  /* Hover effect for cards */
+  .course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Ombre encore plus marquée lors du survol */
+  }
+  
+  .course-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+  
+  .course-card-image img {
+    width: 100%;
+    height: 250px; /* Augmenter la hauteur de l'image */
+    object-fit: cover;
+  }
+  
+  .course-card-content {
+    padding: 20px; /* Ajouter du padding supplémentaire */
+    height: calc(100% - 250px); /* Remplir l'espace restant après l'image */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .course-name {
+    font-size: 20px; /* Augmenter la taille du nom du cours */
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .course-rating {
+    margin-bottom: 15px;
+  }
+  
+  .course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .course-duration {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .course-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d87f0;
+    
+  }
+  
+  /* Optional: Add a hover effect to the price */
+  .course-price span:hover {
+    text-decoration: underline;
+  }
+  
+  .certif{
+    padding: 40px 80px;
+    display: flex;
+    gap: 90px;
+    align-items: center;
+  }
+  .leftside{
+    width: 450px;
+  }
+
+  .rightside h4{
+    font-size: 30px;
+    font-weight: bolder;
+  }

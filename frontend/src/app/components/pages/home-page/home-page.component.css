@@ -1,0 +1,213 @@
+.container{
+    display: flex;
+    gap: 70px;
+    padding: 40px 80px;
+}
+
+.leftside h3{
+    font-size: 50px;
+}
+.leftside p{
+    max-width: 500px;
+    padding-bottom:40px ;
+}
+
+.leftside a{
+    background-color: #af2f64;
+    padding:20px 30px;
+    border-radius: 20px;
+    
+    color: white;
+    font-size: 20px;
+}
+
+.leftside a:hover{
+    opacity: 0.9;
+}
+.leftside span{
+    color: #96d9f3;
+}
+
+
+/* Define the keyframes for the animation */
+/* Définir les keyframes pour l'animation verticale */
+@keyframes verticalTranslate {
+    0% {
+      transform: translateY(20px); /* Position de départ */
+    }
+    100% {
+      transform: translateY(50px); /* Position finale */
+    }
+  }
+  
+  /* Appliquer l'animation à l'image */
+  .rightside img {
+    width: 500px; /* Ajustez la taille */
+    height: auto;
+    animation: verticalTranslate 3s ease-in-out infinite alternate; /* 3s de durée, boucle infinie, mouvement alternatif */
+  }
+  
+  .video{
+    margin: 80px 15%;
+  }
+
+  .container2{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 30px 100px;
+  }
+  .leftside2{
+    padding: 10px 50px;
+  }
+  .rightside2 h3{
+    font-size: 26px;
+    color: #96d9f3;
+  }
+  .rightside2 p{
+    max-width: 600px;
+  }
+ .container2 img{
+    width: 300px;
+    height: 200px;
+  }
+  .img2{
+    margin-left:170px ;
+    margin-top: -100px ;
+    
+  } 
+ 
+.achivments{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 50px 150px;
+}
+.achivments li{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 30px;
+    background-color: #e775a4;
+    color: white;
+    border-radius:10px ;
+    font-size: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  
+}
+.achivments li:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+.achivments li span{
+    font-weight: 800;
+    color: #000;
+}
+.achivments li h6{
+    margin-top:8px ;
+}
+
+/* ###################### */
+
+
+
+
+
+.contact{
+    background-color: #af2f64;
+    color: whitesmoke;
+    margin: 100px 50px;
+    padding: 30px 50px;
+    border-radius: 30px;
+  
+   
+}
+.contact h3{
+    text-align: center;
+    font-size: 30px;
+}
+.contact p{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom:50px ;
+}
+.contact a{
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    color: #af2f64;
+    border-radius:10px ;
+    margin-left: 470px;
+}
+.contact a:hover{
+    opacity: 0.9;
+}
+
+
+
+/* Testimonials Section */
+.avis {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 60px 120px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.avis i {
+    font-size: 60px;
+    color: #af2f64;
+}
+
+.quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.person {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.person:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.person img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.person h3 {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.text {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.text p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.text app-starrating {
+    margin-bottom: 10px;
+}

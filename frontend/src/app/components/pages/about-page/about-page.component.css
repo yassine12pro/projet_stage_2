@@ -1,0 +1,57 @@
+.about-container {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    justify-content: space-between;
+    padding: 40px;
+  }
+  
+  .image-container {
+    flex: 1; /* L'image occupe 50% de la largeur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .text-container {
+    flex: 1; /* Le texte occupe aussi 50% de la largeur */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .text-container h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .text-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #34495e;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column; /* Sur mobile, on empile l'image et le texte */
+    }
+  
+    .image-container,
+    .text-container {
+      width: 100%;
+      padding: 0;
+    }
+  
+    .about-image {
+      max-width: 100%; /* L'image prend toute la largeur sur mobile */
+    }
+  }
+  

@@ -1,0 +1,13 @@
+
+<app-loading></app-loading>
+
+<div class="wrapper">
+
+  <app-header></app-header>
+<router-outlet style="min-height: 100vh;"></router-outlet>
+<app-footer></app-footer>
+</div>
+
+<button id="scrollToTop" *ngIf="showScroll" (click)="scrollToTop()" title="Go to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>

@@ -1,0 +1,46 @@
+<h3 class="cart-title">Shopping Cart</h3>
+
+<app-not-found [visible]="!cart || !cart.items.length"
+    notfoundmessage="Cart Page is Empty"
+    resetlinktext="go to Courses"
+    resetlinkroute="/courses"
+></app-not-found>
+
+<div class="container" *ngIf="cart && cart.items.length">
+
+  <!-- Left Side: Cart Items -->
+  <div class="leftside">
+    <h6 class="item-count">{{ cart.totalCount }} Courses in Cart of {{cu}}</h6>
+    <div class="item" *ngFor="let cartItem of cart.items">
+      <div class="item-card">
+        <img [src]="cartItem.course.imageUrl" alt="Course Image" class="item-image" />
+        <div class="details">
+          <h3 class="item-name">{{ cartItem.course.name }}</h3>
+          <p class="item-desc">{{ cartItem.course.description }}</p>
+          <app-starrating [stars]="cartItem.course.stars" class="item-rating"></app-starrating>
+          <span class="item-duration">{{ cartItem.course.duration }} months</span>
+        </div>
+        <div class="item-actions">
+          <button (click)="removeFromCart(cartItem)" class="remove-btn">Remove</button>
+          <span class="item-price">{{ cartItem.course.price | currency }} /month</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side: Summary -->
+  <div class="rightside">
+    <h4 class="summary-title">Order Summary</h4>
+    <div class="summary-total">
+      <span>Total:</span>
+      <span class="total-price">{{ cart.totalPrice | currency }} /month</span>
+    </div>
+    <a routerLink="/checkout" class="checkout-btn">Checkout</a>
+    <hr />
+    <h5 class="promo-title">Promotions</h5>
+    <div class="coupon">
+      <input type="text" placeholder="Enter Coupon" class="coupon-input" />
+      <button class="apply-btn">Apply</button>
+    </div>
+  </div>
+</div>

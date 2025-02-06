@@ -1,0 +1,116 @@
+<h1>Gestion des cours</h1>
+
+<!-- Zone de recherche -->
+<div class="search-bar">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Rechercher un cours..."
+    (input)="searchCourses()"
+  />
+</div>
+
+<!-- Bouton pour afficher le formulaire d'ajout -->
+<div class="text-right mb-3">
+  <button class="btn btn-primary" (click)="showAddForm = !showAddForm">
+    {{ showAddForm ? 'Masquer le formulaire' : 'Ajouter un cours' }}
+  </button>
+</div>
+
+<!-- Formulaire pour ajouter un cours -->
+<div *ngIf="showAddForm" class="form-container">
+  <h2>Ajouter un cours</h2>
+  <form (ngSubmit)="addCourse()">
+    <div class="form-group">
+      <label for="name">Nom du cours</label>
+      <input type="text" class="form-control" [(ngModel)]="newCourse.name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" [(ngModel)]="newCourse.description" name="description" required />
+    </div>
+    <div class="form-group">
+      <label for="price">Prix</label>
+      <input type="number" class="form-control" [(ngModel)]="newCourse.price" name="price" required />
+    </div>
+    <div class="form-group">
+      <label for="stars">Étoiles</label>
+      <input type="number" class="form-control" [(ngModel)]="newCourse.stars" name="stars" required />
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">URL de l'image</label>
+      <input type="text" class="form-control" [(ngModel)]="newCourse.imageUrl" name="imageUrl" required />
+    </div>
+    <div class="form-group">
+      <label for="duration">Durée (month)</label>
+      <input type="number" class="form-control" [(ngModel)]="newCourse.duration" name="duration" required />
+    </div>
+    <button type="submit" class="btn btn-success">Ajouter</button>
+    <button type="button" class="btn btn-secondary" (click)="showAddForm = false">Annuler</button>
+  </form>
+</div>
+
+<!-- Formulaire pour modifier un cours -->
+<div *ngIf="selectedCourse" id="courseForm" class="form-container">
+  <h2>Modifier un cours</h2>
+  <form (ngSubmit)="updateCourse()">
+    <div class="form-group">
+      <label for="name">Nom du cours</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedCourse.name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedCourse.description" name="description" required />
+    </div>
+    <div class="form-group">
+      <label for="price">Prix</label>
+      <input type="number" class="form-control" [(ngModel)]="selectedCourse.price" name="price" required />
+    </div>
+    <div class="form-group">
+      <label for="stars">Étoiles</label>
+      <input type="number" class="form-control" [(ngModel)]="selectedCourse.stars" name="stars" required />
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">URL de l'image</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedCourse.imageUrl" name="imageUrl" required />
+    </div>
+    <div class="form-group">
+      <label for="duration">Durée (month)</label>
+      <input type="number" class="form-control" [(ngModel)]="selectedCourse.duration" name="duration" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    <button type="button" class="btn btn-secondary" (click)="selectedCourse = null">Annuler</button>
+  </form>
+</div>
+
+<!-- Tableau des cours -->
+<h2>Liste des cours</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Description</th>
+      <th>Prix (€)</th>
+      <th>Étoiles</th>
+      <th>Durée (month)</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of filteredCourses">
+      <td>{{ course.name }}</td>
+      <td>{{ course.description }}</td>
+      <td>{{ course.price }}</td>
+      <td>{{ course.stars }}</td>
+      <td>{{ course.duration }}</td>
+      <td>
+        <img [src]="course.imageUrl" alt="{{ course.name }}" style="max-width: 50px; max-height: 50px;" />
+      </td>
+      <td>
+        <button class="btn btn-warning btn-sm" (click)="editCourse(course)">Modifier</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteCourse(course.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

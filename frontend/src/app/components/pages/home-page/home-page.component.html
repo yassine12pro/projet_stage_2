@@ -1,0 +1,82 @@
+<div class="container">
+
+    <div class="leftside">
+      <h3>Improve <span>your skills</span> <br/> on your own <br/> to prepare <br/> for a <span>better future</span></h3>
+      <p>Welcome to our e-learning platform! Empower your journey with interactive courses, expert guidance, and a flexible learning experience. Unlock your potential, learn at your own pace, and achieve your goals from anywhere in the world.</p>
+      <a routerLink="/register" >Register Now</a>
+  
+    </div>
+  
+  
+    <div class="rightside">
+      <img src="assets/hero-img.png" alt="hero-img" />
+    </div>
+  
+  </div>
+  
+  <div class="video">
+      <iframe width="900" height="450" src="https://www.youtube.com/embed/SyOstU-kq1A?si=Dh-P8Rp4N7oVWZoG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  
+  <div class="container2">
+      <div class="leftside2">
+          <img class="img1" src="assets/weAreWe1.png"/>
+          <img class="img2" src="assets/weAreWe2.png"/>
+      </div>
+  
+      <div class="rightside2">
+          <h3>We are here to help</h3>
+          <p>Become who you want to be with The Bridge. Choose your own career path and earn an online degree with hands-on projects and weekly one-on-one mentoring sessions with a dedicated professional in your field.</p>
+      </div>
+  </div>
+  
+  <ul class="achivments">
+    <li> 
+      <mat-icon>school</mat-icon> 
+      <h6> Enrolled Students </h6> 
+      <span>3,800+</span>
+    </li>
+    <li> 
+      <mat-icon>menu_book</mat-icon> 
+      <h6>Online Courses</h6> 
+      <span>966+</span>
+    </li>
+    <li> 
+      <mat-icon>person</mat-icon> 
+      <h6>Trainers</h6> 
+      <span>187+</span>
+    </li>
+  </ul>
+  
+  
+  <div class="contact">
+      <div>
+       <h3>Have a question ?</h3>
+       <p>If you have any questions please feel free to contact us at any time.</p>
+      </div>
+       <a href="/contact">Contact Us</a>
+   </div>
+  
+  
+  <div class="avis">
+      <i class="fa-solid fa-quote-left"></i>
+      <h4>Testimonials :</h4>
+
+      <div *ngFor="let review of reviews" class="quotes">
+          <div class="person">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBcqbpnv_cKoMBr5v-nwvzLypc31b5HlB4Ug&s"/>
+              <h3 *ngIf="review.userId.name == currentUser ; else other"> you </h3>
+              <ng-template #other>
+                <span>{{ review.userId.name }}</span>
+              </ng-template>
+          </div>
+          <div class="text">
+              <app-starrating [stars]="review.rating"></app-starrating>
+              <p>{{review.comment}}</p>
+          </div>
+      </div>
+  </div>
+  
+  
+  
+  

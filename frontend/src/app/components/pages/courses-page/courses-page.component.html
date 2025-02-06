@@ -1,0 +1,45 @@
+<ul class="courses-list">
+  <li *ngFor="let course of courses" class="course-card">
+    <a routerLink="/courses/{{ course.id }}" class="course-card-link">
+      <div class="course-card-image">
+        <img [src]="course.imageUrl" [alt]="course.name" />
+      </div>
+
+      <div class="course-card-content">
+        <div class="course-name">
+          {{ course.name }}
+        </div>
+        <div class="course-desc">
+          {{ course.description }}
+        </div>
+
+        <div class="course-rating">
+          <app-starrating [stars]="course.stars"></app-starrating>
+        </div>
+
+        <div class="course-footer">
+          <div>
+            <p class="course-duration">
+              <i class="fa fa-clock"></i> {{ course.duration }} months
+            </p>
+            <p class="course-duration">
+              <i class="fa-solid fa-location-dot" style="color: #5c5c5c"></i> Présentiel / En ligne
+            </p>
+          </div>
+          <div class="course-price">
+            <span>{{ course.price | currency }} /month</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>
+
+
+  <div class="certif">
+    <img class="leftside" src="assets/certif.png"/>
+    <div class="rightside">
+      <h4>Our Certif </h4>
+      <p>Our e-learning platform offers industry-recognized certificates that validate your skills and knowledge. Each certificate is awarded upon successful completion of a course or program and serves as proof of your expertise in the subject. Designed to enhance your professional profile, our certificates are trusted by employers and tailored to meet current market demands. Whether you're advancing your career or pursuing personal growth, our certifications ensure you stand out in today's competitive world.</p>
+    </div>
+  </div>

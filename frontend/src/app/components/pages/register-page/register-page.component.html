@@ -1,0 +1,109 @@
+<div class="register-container">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <h2>Register</h2>
+  
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          formControlName="name"
+          placeholder="Enter your name"
+        />
+        <div *ngIf="fc['name'].touched && fc['name'].invalid" class="text-danger">
+          <small *ngIf="fc['name'].errors?.['required']">Name is required.</small>
+          <small *ngIf="fc['name'].errors?.['minlength']">
+            Name must be at least 2 characters long.
+          </small>
+        </div>
+        
+      </div>
+  
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <div *ngIf="fc['email'].touched && fc['email'].invalid" class="text-danger">
+          <small *ngIf="fc['email'].errors?.['required']">Email is required.</small>
+          <small *ngIf="fc['email'].errors?.['email']">Enter a valid email address.</small>
+        </div>
+        
+      </div>
+  
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <div *ngIf="fc['password'].touched && fc['password'].invalid" class="text-danger">
+          <small *ngIf="fc['password'].errors?.['required']">Password is required.</small>
+          <small *ngIf="fc['password'].errors?.['minlength']">
+            Password must be at least 5 characters long.
+          </small>
+        </div>
+        
+      </div>
+  
+      <!-- Confirm Password Field -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control"
+          formControlName="confirmPassword"
+          placeholder="Confirm your password"
+        />
+        <div *ngIf="fc['confirmPassword'].touched && fc['confirmPassword'].invalid" class="text-danger">
+          <small *ngIf="fc['confirmPassword'].errors?.['required']">
+            Confirm Password is required.
+          </small>
+          <small *ngIf="registerForm.errors?.['passwordMismatch']">
+            Passwords do not match.
+          </small>
+        </div>
+        
+      </div>
+  
+      <!-- Address Field -->
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea
+          id="address"
+          class="form-control"
+          formControlName="address"
+          placeholder="Enter your address"
+        ></textarea>
+        <div *ngIf="fc['address'].touched && fc['address'].invalid" class="text-danger">
+          <small *ngIf="fc['address'].errors?.['required']">Address is required.</small>
+          <small *ngIf="fc['address'].errors?.['minlength']">
+            Address must be at least 5 characters long.
+          </small>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="registerForm.invalid"
+      >
+        Register
+      </button>
+      <p class="login">Already a User ?  <a routerLink="/login">Login here</a></p>
+    </form>
+  </div>
+  
