@@ -60,6 +60,11 @@
     font-size: 14px;
     color: #555;
     margin-bottom: 10px;
+    display: -webkit-box; /* Utiliser le modèle de boîte flexible */
+    -webkit-box-orient: vertical; /* Orientation verticale */
+    -webkit-line-clamp: 2; /* Limiter à 2 lignes */
+    overflow: hidden; /* Masquer le contenu dépassant */
+    text-overflow: ellipsis; /* Ajouter des points de suspension */
   }
   
   .item-rating {

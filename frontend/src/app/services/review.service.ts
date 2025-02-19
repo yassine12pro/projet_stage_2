@@ -8,20 +8,18 @@ import { GET_ALL_REVIEW_URL, POST_REVIEW_URL } from '../shared/constants/urls';
 })
 export class ReviewService {
   
-
   constructor(private http: HttpClient) {}
 
   // Submit a review
   submitReview(rating: number, comment: string): Observable<any> {
-    const user = JSON.parse(localStorage.getItem('User') || '{}'); // Get the user object from localStorage
-    const token = user.token; // Extract the token from the user object
+    const user = JSON.parse(localStorage.getItem('User') || '{}'); 
+    const token = user.token; 
 
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
     });
 
     const reviewData = { rating, comment };
-
     return this.http.post(POST_REVIEW_URL, reviewData, { headers });
   }
 

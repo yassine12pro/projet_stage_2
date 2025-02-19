@@ -5,7 +5,6 @@ import { HTTP_BAD_REQUEST, HTTP_CREATED, HTTP_NOT_FOUND } from "../constants/htt
 
 const router = Router();
 
-// Récupérer tous les cours
 router.get(
   "/",
   asyncHandler(async (req, res) => {
@@ -14,7 +13,6 @@ router.get(
   })
 );
 
-// Rechercher des cours par terme de recherche
 router.get(
   "/search/:searchTerm",
   asyncHandler(async (req, res) => {
@@ -24,7 +22,6 @@ router.get(
   })
 );
 
-// Récupérer un cours par ID
 router.get(
   "/:id",
   asyncHandler(async (req, res) => {

@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv"
-dotenv.config()
+const path = require('path');
+
+require('dotenv').config({ path: path.resolve(__dirname, './../.env') });
 
 import { dbConnect } from "./configs/database.config"
 import userRouter from "./routers/user.router";
@@ -18,14 +19,9 @@ app.use(cors({
     origin:["http://localhost:4200"]
 }));
 
-
-
-
 app.use("/api/users" ,userRouter)
 app.use("/api/courses" ,courseRouter)
 app.use("/api/review" ,reviewRouter)
-
-
 
 
 const port = 5001;

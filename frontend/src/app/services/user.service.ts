@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   private userSubject = new BehaviorSubject<User>(this.getUserToLocalStorage());
   public userObservable: Observable<User>;

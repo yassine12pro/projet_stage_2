@@ -1,1 +1,29 @@
-<p>profile-page works!</p>
+<div class="profile-container">
+    <h2>Profil de l'utilisateur</h2>
+  
+    <div *ngIf="user.name" class="profile-info">
+      <div class="info-item">
+        <span class="label">Nom :</span>
+        <span class="value">{{ user.name }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">Email :</span>
+        <span class="value">{{ user.email }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">Adresse :</span>
+        <span class="value">{{ user.address }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">Rôle :</span>
+        <span class="value">{{ user.isAdmin ? 'Administrateur' : 'Utilisateur' }}</span>
+      </div>
+    </div>
+  
+    <div *ngIf="!user.name" class="no-data">
+      <p>Aucune donnée utilisateur trouvée.</p>
+    </div>
+  </div>

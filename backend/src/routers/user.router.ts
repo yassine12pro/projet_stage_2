@@ -1,5 +1,4 @@
 import {Router} from "express"
-// import { sample_users } from "../data";
 import jwt from "jsonwebtoken"
 import asyncHandler from "express-async-handler"
 import { User, UserModel } from "../models/user.model";
@@ -8,18 +7,6 @@ import { HTTP_BAD_REQUEST } from "../constants/http_status";
 
 const router=Router()
 
-
-// router.get("/seed" , asyncHandler(
-//     async (req,res)=>{
-//         const userCount=await UserModel.countDocuments()
-//         if (userCount>0) {
-//             res.send("already done")
-//             return
-//         }
-//         await UserModel.create(sample_users)
-//         res.send("done")
-//     }
-// ))
 
 router.post("/login" , asyncHandler(
     async (req,res)=>{
